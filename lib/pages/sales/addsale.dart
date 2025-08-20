@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-class BroilerPage extends StatefulWidget {
-  const BroilerPage({super.key});
+class AddSale extends StatefulWidget {
+  const AddSale({super.key});
 
   @override
-  State<BroilerPage> createState() => _BroilerPageState();
+  State<AddSale> createState() => _AddSaleState();
 }
 
-class _BroilerPageState extends State<BroilerPage> {
+class _AddSaleState extends State<AddSale> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
         title: Text(
-          'Broiler Registration',
+          'Sign Up',
           textAlign: TextAlign.left,
-          style: TextStyle(color: Colors.white, fontSize: 30),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 30,
+          ),
         ),
       ),
       backgroundColor: Colors.green.shade100,
@@ -34,7 +36,7 @@ class _BroilerPageState extends State<BroilerPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Register Batch',
+                'Sales Form',
                 style: TextStyle(
                   fontSize: 35,
                   color: Colors.black,
@@ -50,18 +52,51 @@ class _BroilerPageState extends State<BroilerPage> {
                       child: TextFormField(
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
-                          labelText: 'Farm Name',
-                          hintText: 'Enter farm name',
-                          prefixIcon: Icon(Icons.agriculture),
+                          labelText: 'Batch Name',
+                          hintText: 'Enter batch name',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
                         onChanged: (String value) {},
                         validator: (value) {
-                          return value!.isEmpty
-                              ? 'Please enter farm name'
-                              : null;
+                          return value!.isEmpty ? 'Please enter your barch name' : null;
+                        },
+                      ),
+                    ),
+                    SizedBox(height: 30,),
+                     Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: TextFormField(
+                        keyboardType: TextInputType.datetime,
+                        decoration: InputDecoration(
+                          labelText: 'Date',
+                          hintText: 'Enter date',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        onChanged: (String value) {},
+                        validator: (value) {
+                          return value!.isEmpty ? 'Please enter date' : null;
+                        },
+                      ),
+                    ),
+                    SizedBox(height: 30,),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          labelText: 'Birds Sold',
+                          hintText: 'Enter birds sold',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        onChanged: (String value) {},
+                        validator: (value) {
+                          return value!.isEmpty ? 'Please enter birds sold' : null;
                         },
                       ),
                     ),
@@ -69,21 +104,11 @@ class _BroilerPageState extends State<BroilerPage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: TextFormField(
-                        keyboardType: TextInputType.name,
+                        keyboardType: TextInputType.number,
                         decoration: InputDecoration(
-                          labelText: 'Batch Name',
-                          hintText: 'Enter batch name',
-                          prefixIcon: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SizedBox(
-                              width: 24,
-                              height: 24,
-                              child: SvgPicture.asset(
-                                "assets/icons/chicken.svg",
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                          ),
+                          contentPadding: EdgeInsets.only(left: 5, right: 5),
+                          labelText: 'Birds per crste',
+                          hintText: 'Enter birds per crate',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
@@ -91,7 +116,28 @@ class _BroilerPageState extends State<BroilerPage> {
                         onChanged: (String value) {},
                         validator: (value) {
                           return value!.isEmpty
-                              ? 'Please enter batch name'
+                              ? 'Please enter birds per crate'
+                              : null;
+                        },
+                      ),
+                    ),
+                    SizedBox(height: 30),
+                     Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.only(left: 5, right: 5),
+                          labelText: 'Total Weight',
+                          hintText: 'Enter total weight',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        onChanged: (String value) {},
+                        validator: (value) {
+                          return value!.isEmpty
+                              ? 'Please enter total weight'
                               : null;
                         },
                       ),
@@ -102,9 +148,9 @@ class _BroilerPageState extends State<BroilerPage> {
                       child: TextFormField(
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
-                          labelText: 'Quantity',
-                          hintText: 'Enter Quantity',
-                          prefixIcon: Icon(Icons.numbers),
+                          contentPadding: EdgeInsets.only(left: 5, right: 5),
+                          labelText: 'Tolal Weight',
+                          hintText: 'Enter total weight',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
@@ -112,48 +158,8 @@ class _BroilerPageState extends State<BroilerPage> {
                         onChanged: (String value) {},
                         validator: (value) {
                           return value!.isEmpty
-                              ? 'Please enter quantity'
+                              ? 'Please enter total weight'
                               : null;
-                        },
-                      ),
-                    ),
-                    SizedBox(height: 30),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: TextFormField(
-                        keyboardType: TextInputType.datetime,
-                        decoration: InputDecoration(
-                          labelText: 'Arrival Date',
-                          hintText: 'Enter arrival date',
-                          prefixIcon: Icon(Icons.calendar_month),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                        onChanged: (String value) {},
-                        validator: (value) {
-                          return value!.isEmpty
-                              ? 'Please enter arrivel date'
-                              : null;
-                        },
-                      ),
-                    ),
-                    SizedBox(height: 30),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: TextFormField(
-                        keyboardType: TextInputType.datetime,
-                        decoration: InputDecoration(
-                          labelText: 'Status',
-                          hintText: 'Enter status',
-                          prefixIcon: Icon(Icons.circle),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                        onChanged: (String value) {},
-                        validator: (value) {
-                          return value!.isEmpty ? 'Please enter status' : null;
                         },
                       ),
                     ),

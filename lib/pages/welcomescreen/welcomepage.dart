@@ -1,3 +1,4 @@
+import 'package:lottie/lottie.dart';
 import 'package:broilermanage/pages/loginpage/loginpage.dart';
 import 'package:broilermanage/pages/signuppage/signuppage.dart';
 import 'package:flutter/material.dart';
@@ -22,11 +23,12 @@ class _WelcomepageState extends State<Welcomepage> {
               '  Welcome To \n Broiler Manage',
               style: TextStyle(color: Colors.white, fontSize: 50),
             ),
-            SizedBox(height: 30),
-            Image.asset(
-              'assets/images/ChatGPT Image Aug 14, 2025, 08_38_27 AM.png',
+            SizedBox(height: 35),
+            Lottie.asset('assets/lottie/Little Chicken.json',
+            height: 300,
+            width: 500
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 35),
             Text(
               '           Managing your \n broilers for quality results.',
               style: TextStyle(color: Colors.white, fontSize: 20),

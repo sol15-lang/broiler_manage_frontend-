@@ -1,3 +1,4 @@
+import 'package:broilermanage/pages/profilepage/profilepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -23,15 +24,33 @@ class _DailyReportsPageState extends State<DailyReportsPage> {
         backgroundColor: Colors.green,
         title: const Text(
           "Daily Report",
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white,fontSize: 30),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: CircleAvatar(
+              backgroundColor: Colors.white,
+              child: IconButton(
+                color: Colors.black,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()),
+                  );
+                },
+                icon: Icon(Icons.person),
+              ),
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
               height: 540,
-              margin: EdgeInsets.all(25),
+              margin: EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(color: Colors.transparent, width: 2),

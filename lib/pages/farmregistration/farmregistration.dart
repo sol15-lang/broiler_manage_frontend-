@@ -16,12 +16,13 @@ class _FarmPageState extends State<FarmPage> {
         title: Text(
           'Farm Registration',
           textAlign: TextAlign.left,
-          style: TextStyle(color: Colors.white, fontSize: 40),
+          style: TextStyle(color: Colors.white, fontSize: 30),
         ),
       ),
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.green.shade100,
       body: Center(
         child: Container(
+          margin: EdgeInsets.all(15),
           height: 700,
           decoration: BoxDecoration(
             color: Colors.white,

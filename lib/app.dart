@@ -1,4 +1,4 @@
-import 'package:broilermanage/pages/navigationbar/navigationbar.dart';
+import 'package:broilermanage/pages/splashscreen/splashscreen.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: NavigationMenu(),
+      home: SplashPage(),
     );
   }
 }

@@ -1,25 +1,54 @@
+import 'package:broilermanage/pages/dashboard/sidemenu.dart';
+import 'package:broilermanage/pages/profilepage/profilepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class DashboardPage extends StatelessWidget {
-  const DashboardPage({super.key});
+class Dashboard extends StatefulWidget {
+  const Dashboard({super.key});
+
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
+  // Fake broiler batches (later connect to backend)
+  final List<String> broilerBatches = [
+    "Batch 1 - Jan 2025",
+    "Batch 2 - Feb 2025",
+    "Batch 3 - Mar 2025",
+  ];
+
+  String selectedBatch = "Batch A - Jan 2025";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: SideMenu(),
+      ),
+
       backgroundColor: Colors.green.shade50,
       appBar: AppBar(
         backgroundColor: Colors.green,
         title: const Text(
           'Green Farm - Batch 1',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle(color: Colors.white, fontSize: 25),
         ),
-        actions: const [
+         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 16.0),
+            padding: const EdgeInsets.only(right: 16.0),
             child: CircleAvatar(
               backgroundColor: Colors.white,
-              child: Icon(Icons.person, color: Colors.green),
+              child: IconButton(
+                color: Colors.black,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()),
+                  );
+                },
+                icon: Icon(Icons.person),
+              ),
             ),
           ),
         ],
@@ -103,7 +132,6 @@ class DashboardPage extends StatelessWidget {
 }
 
 class StatCard extends StatelessWidget {
-
   final String title;
   final String value;
   final String? svgPath;
