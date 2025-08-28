@@ -23,10 +23,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: SideMenu(),
-      ),
-
+      drawer: Drawer(child: SideMenu()),
       backgroundColor: Colors.green.shade50,
       appBar: AppBar(
         backgroundColor: Colors.green,
@@ -34,7 +31,7 @@ class _DashboardState extends State<Dashboard> {
           'Green Farm - Batch 1',
           style: TextStyle(color: Colors.white, fontSize: 25),
         ),
-         actions: [
+        actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: CircleAvatar(
@@ -59,6 +56,10 @@ class _DashboardState extends State<Dashboard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Text(
+              'Broiler Status',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
             // Stats Grid
             GridView.count(
               crossAxisCount: 2,
@@ -77,25 +78,113 @@ class _DashboardState extends State<Dashboard> {
                   title: "Mortality Today",
                   value: "5",
                 ),
-                StatCard(
-                  svgPath: "assets/icons/feeding_icon.svg",
-                  title: "Feed Stock",
-                  value: "550 kg",
+              ],
+            ),
+            const SizedBox(height: 20),
+
+            Text(
+              'Inventory Overview',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            ListView(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.green.shade100,
+                  ),
+                  child: ExpansionTile(
+                    backgroundColor: Colors.white,
+                    title: const Text("Feed"),
+                    children: [
+                      ListTile(
+                        leading: SvgPicture.asset(
+                          'assets/icons/feeding_icon.svg',
+                          height: 24,
+                          width: 24,
+                          color: Colors.black,
+                        ),
+                        title: Text("Starter Feed"),
+                        subtitle: Text("Quantity: 100 kg"),
+                      ),
+                      ListTile(
+                        leading: SvgPicture.asset(
+                          'assets/icons/feeding_icon.svg',
+                          height: 24,
+                          width: 24,
+                          color: Colors.black,
+                        ),
+                        title: Text("Grower Feed"),
+                        subtitle: Text("Quantity: 200 kg"),
+                      ),
+                      ListTile(
+                        leading: SvgPicture.asset(
+                          'assets/icons/feeding_icon.svg',
+                          height: 24,
+                          width: 24,
+                          color: Colors.black,
+                        ),
+                        title: Text("Finisher Feed"),
+                        subtitle: Text("Quantity: 150 kg"),
+                      ),
+                    ],
+                  ),
                 ),
-                StatCard(
-                  svgPath: "assets/icons/medication.svg",
-                  title: "Medicine Stock",
-                  value: "150 kg",
+                SizedBox(height: 15),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.green.shade100,
+                  ),
+                  child: ExpansionTile(
+                    backgroundColor: Colors.white,
+                    title: const Text("Medicine"),
+                    children: [
+                      ListTile(
+                        leading: SvgPicture.asset(
+                          'assets/icons/medication.svg',
+                          height: 24,
+                          width: 24,
+                          color: Colors.black,
+                        ),
+                        title: const Text("Antibiotic A"),
+                        subtitle: const Text("Stock: 50 bottles"),
+                      ),
+                      ListTile(
+                        leading: SvgPicture.asset(
+                          'assets/icons/medication.svg',
+                          height: 24,
+                          width: 24,
+                          color: Colors.black,
+                        ),
+                        title: const Text("Vitamin B"),
+                        subtitle: const Text("Stock: 30 bottles"),
+                      ),
+                      ListTile(
+                        leading: SvgPicture.asset(
+                          'assets/icons/medication.svg',
+                          height: 24,
+                          width: 24,
+                          color: Colors.black,
+                        ),
+                        title: Text("Dewormer"),
+                        subtitle: Text("Stock: 20 sachets"),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
 
             // Charts (Placeholder containers)
             const Text(
               "Weight Growth",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             SizedBox(
               height: 150,
@@ -112,7 +201,7 @@ class _DashboardState extends State<Dashboard> {
 
             const Text(
               "Expenses Trend",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             SizedBox(
               height: 150,

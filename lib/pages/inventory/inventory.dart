@@ -27,7 +27,7 @@ class Inventory extends StatelessWidget {
     };
 
     return Scaffold(
-      backgroundColor: Colors.green.shade100,
+      backgroundColor: Colors.green.shade50,
       appBar: AppBar(
         backgroundColor: Colors.green,
         title: const Text("Inventory", style: TextStyle(color: Colors.white,fontSize: 30)),
@@ -56,9 +56,10 @@ class Inventory extends StatelessWidget {
           List<Map<String, String>> items = entry.value;
 
           return Card(
-            margin: const EdgeInsets.all(10),
+            margin: EdgeInsets.all(10),
+            color: Colors.green.shade100,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12),              
             ),
             child: ExpansionTile(
               title: Text(

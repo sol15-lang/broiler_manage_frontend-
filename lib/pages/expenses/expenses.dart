@@ -68,7 +68,7 @@ class ExpensesPage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: Colors.green.shade100,
+      backgroundColor: Colors.green.shade50,
       appBar: AppBar(
         backgroundColor: Colors.green,
         title: const Text(
@@ -101,6 +101,7 @@ class ExpensesPage extends StatelessWidget {
 
           return Card(
             margin: const EdgeInsets.all(10),
+            color: Colors.green.shade100,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
