@@ -1,5 +1,4 @@
 import 'package:broilermanage/pages/expenses/addexpense.dart';
-import 'package:broilermanage/pages/profilepage/profilepage.dart';
 import 'package:flutter/material.dart';
 
 class ExpensesPage extends StatelessWidget {
@@ -75,24 +74,6 @@ class ExpensesPage extends StatelessWidget {
           "Expenses",
           style: TextStyle(color: Colors.white, fontSize: 30),
         ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: IconButton(
-                color: Colors.black,
-                onPressed: () {
-                   Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ProfilePage()),
-                );
-                },
-                icon: const Icon(Icons.person),
-              ),
-            ),
-          ),
-        ],
       ),
       body: ListView(
         children: groupedExpenses.entries.map((entry) {
@@ -101,7 +82,7 @@ class ExpensesPage extends StatelessWidget {
 
           return Card(
             margin: const EdgeInsets.all(10),
-            color: Colors.green.shade100,
+            color: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),

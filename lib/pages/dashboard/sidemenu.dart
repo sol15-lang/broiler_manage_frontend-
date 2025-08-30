@@ -59,20 +59,47 @@ class _SideMenuState extends State<SideMenu> {
             ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-           Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => BroilerPage()),
-                );
+       floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                title: const Text("Add Batch", textAlign: TextAlign.center),
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    MaterialButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => BroilerPage()),
+                        );
+                      },
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      minWidth: 50,
+                      height: 50,
+                      color: Colors.green,
+                      child: const Text(
+                        "Go to Broiler registration",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
         },
         backgroundColor: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadiusGeometry.circular(50)
-        ),
-        child: Icon(Icons.add,
-        color: Colors.black,
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        child: const Icon(Icons.add, color: Colors.black),
       ),
     );
   }

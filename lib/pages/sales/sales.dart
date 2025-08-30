@@ -1,4 +1,3 @@
-import 'package:broilermanage/pages/profilepage/profilepage.dart';
 import 'package:broilermanage/pages/sales/addlocalsales.dart';
 import 'package:broilermanage/pages/sales/addcommercialsale.dart';
 import 'package:flutter/material.dart';
@@ -48,25 +47,10 @@ class SalesPage extends StatelessWidget {
       backgroundColor: Colors.green.shade50,
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: const Text("Sales", style: TextStyle(color: Colors.white, fontSize: 30)),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: IconButton(
-                color: Colors.black,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ProfilePage()),
-                  );
-                },
-                icon: const Icon(Icons.person),
-              ),
-            ),
-          ),
-        ],
+        title: const Text(
+          "Sales",
+          style: TextStyle(color: Colors.white, fontSize: 30),
+        ),
       ),
       body: ListView(
         children: salesData.entries.map((entry) {
@@ -82,10 +66,7 @@ class SalesPage extends StatelessWidget {
             child: ExpansionTile(
               title: Text(
                 categoryType,
-                style: const TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
-                ),
+                style: const TextStyle(fontSize: 18, color: Colors.black),
               ),
               children: items.map((sale) {
                 return ListTile(
@@ -112,7 +93,10 @@ class SalesPage extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
-                title: const Text("Choose Sale Type", textAlign: TextAlign.center),
+                title: const Text(
+                  "Choose Sale Type",
+                  textAlign: TextAlign.center,
+                ),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -121,7 +105,9 @@ class SalesPage extends StatelessWidget {
                         Navigator.pop(context);
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => AddLocalSale()),
+                          MaterialPageRoute(
+                            builder: (context) => AddLocalSale(),
+                          ),
                         );
                       },
                       shape: RoundedRectangleBorder(
@@ -141,7 +127,9 @@ class SalesPage extends StatelessWidget {
                         Navigator.pop(context);
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => AddCommercialSale()),
+                          MaterialPageRoute(
+                            builder: (context) => AddCommercialSale(),
+                          ),
                         );
                       },
                       shape: RoundedRectangleBorder(

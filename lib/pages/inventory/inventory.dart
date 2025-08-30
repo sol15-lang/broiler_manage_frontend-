@@ -1,5 +1,4 @@
 import 'package:broilermanage/pages/inventory/addinventory.dart';
-import 'package:broilermanage/pages/profilepage/profilepage.dart';
 import 'package:flutter/material.dart';
 
 class Inventory extends StatelessWidget {
@@ -31,24 +30,6 @@ class Inventory extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.green,
         title: const Text("Inventory", style: TextStyle(color: Colors.white,fontSize: 30)),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: IconButton(
-                color: Colors.black,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ProfilePage()),
-                  );
-                },
-                icon: Icon(Icons.person),
-              ),
-            ),
-          ),
-        ],
       ),
       body: ListView(
         children: inventoryData.entries.map((entry) {
@@ -57,7 +38,7 @@ class Inventory extends StatelessWidget {
 
           return Card(
             margin: EdgeInsets.all(10),
-            color: Colors.green.shade100,
+            color: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),              
             ),
@@ -86,20 +67,47 @@ class Inventory extends StatelessWidget {
           );
         }).toList(),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-           Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AddInventory()),
-                );
+       floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                title: const Text("Add to Inventory", textAlign: TextAlign.center),
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    MaterialButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AddInventory()),
+                        );
+                      },
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      minWidth: 50,
+                      height: 50,
+                      color: Colors.green,
+                      child: const Text(
+                        "Go to Add Inventory",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
         },
         backgroundColor: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadiusGeometry.circular(50)
-        ),
-        child: Icon(Icons.add,
-        color: Colors.black,
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        child: const Icon(Icons.add, color: Colors.black),
       ),
     );
   }

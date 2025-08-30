@@ -1,5 +1,4 @@
 import 'package:broilermanage/pages/dashboard/sidemenu.dart';
-import 'package:broilermanage/pages/profilepage/profilepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -31,24 +30,6 @@ class _DashboardState extends State<Dashboard> {
           'Green Farm - Batch 1',
           style: TextStyle(color: Colors.white, fontSize: 25),
         ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: IconButton(
-                color: Colors.black,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ProfilePage()),
-                  );
-                },
-                icon: Icon(Icons.person),
-              ),
-            ),
-          ),
-        ],
       ),
 
       body: SingleChildScrollView(

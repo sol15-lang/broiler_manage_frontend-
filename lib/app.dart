@@ -2,8 +2,10 @@ import 'package:broilermanage/broilermanagemain.dart';
 import 'package:broilermanage/pages/dailyreports/dailyreports.dart';
 import 'package:broilermanage/pages/expenses/expenses.dart';
 import 'package:broilermanage/pages/inventory/inventory.dart';
+import 'package:broilermanage/pages/loginpage/loginpage.dart';
 import 'package:broilermanage/pages/profilepage/profilepage.dart';
 import 'package:broilermanage/pages/sales/sales.dart';
+import 'package:broilermanage/pages/signuppage/signuppage.dart';
 import 'package:broilermanage/pages/splashscreen/splashscreen.dart';
 import 'package:broilermanage/pages/utilities/constants.dart';
 import 'package:broilermanage/pages/utilities/services.dart';
@@ -22,10 +24,12 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/main',
+        initialRoute: '/login',
         navigatorKey: Nav.mainAppNav,
         routes: {
           '/': (context) => SplashPage(),
+          '/login':(context)=>LoginScreen(),
+          '/signup':(context)=>SignupPage(),
           '/main': (context) => BroilerManageMain(),//Dashboard(),
           '/reports': (context) => DailyReportsPage(),
           '/inventory':(context)=> Inventory(),
@@ -33,7 +37,6 @@ class MyApp extends StatelessWidget {
           '/sales':(context)=>SalesPage(),
           '/profile':(context)=>ProfilePage()
         },
-        
       ),
     );
   }

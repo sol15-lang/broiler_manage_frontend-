@@ -23,7 +23,7 @@ class _FarmPageState extends State<FarmPage> {
       body: Center(
         child: Container(
           margin: EdgeInsets.all(15),
-          height: 700,
+          height: 500,
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(color: Colors.transparent, width: 2),

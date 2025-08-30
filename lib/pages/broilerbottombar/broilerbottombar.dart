@@ -45,6 +45,12 @@ class BroilerBottomBar extends StatelessWidget {
                   broilerbottomBarSelectionService.setTabSelection('sales');
                 },
               ),
+               IconButton(
+                icon: Icon(Icons.person),
+                onPressed: () {
+                  broilerbottomBarSelectionService.setTabSelection('profile');
+                },
+              ),
             ],
           );
         },

@@ -1,4 +1,4 @@
-import 'package:broilermanage/pages/dashboard/dashboard.dart';
+import 'package:broilermanage/broilermanagemain.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -23,7 +23,7 @@ class _SplashPageState extends State<SplashPage> {
 
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const Dashboard()),
+        MaterialPageRoute(builder: (context) => BroilerManageMain()),
       );
     });
   }
